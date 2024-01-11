@@ -9,7 +9,18 @@ var app = new Vue({
             return this.slugText
                 .toLowerCase()
                 .replace(/[^\w ]+/g, '')
-                .replace(/ +/g, '-');
+                .replace(/ +/g, '-') + '-' + this.now();
+        }
+    },
+
+    methods: {
+        now: function () {
+            var date = new Date();
+            return (
+                String(date.getHours()) +
+                String(date.getMinutes()) +
+                String(date.getSeconds())
+            );
         }
     }
 })
